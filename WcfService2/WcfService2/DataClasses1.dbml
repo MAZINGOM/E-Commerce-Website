@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EventHelpersDB" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(localdb)\v12.0;Initial Catalog=EventHelpersDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EventHelpersDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Bookings" Member="Bookings">
+    <Type Name="Booking">
+      <Column Name="EMP_ID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Event_Id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Invoice_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_Booking" Member="Employee" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Event_Booking" Member="Event" ThisKey="Event_Id" OtherKey="Event_Id" Type="Event" IsForeignKey="true" />
+      <Association Name="Invoice_Booking" Member="Invoice" ThisKey="Invoice_Id" OtherKey="Invoice_Id" Type="Invoice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EMP_ID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMP_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_Surname" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMP_Address" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_Booking" Member="Bookings" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="Booking" />
+      <Association Name="Employee_FirstAider" Member="FirstAiders" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="FirstAider" />
+      <Association Name="Employee_LoginTable" Member="LoginTables" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="LoginTable" />
+      <Association Name="Employee_Medic" Member="Medics" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="Medic" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="Event_Id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Event_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Event_Date_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Event_Address" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Event_Num_People" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Event_Booking" Member="Bookings" ThisKey="Event_Id" OtherKey="Event_Id" Type="Booking" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FirstAider" Member="FirstAiders">
+    <Type Name="FirstAider">
+      <Column Name="FA_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMP_ID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Certificate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Expire_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_FirstAider" Member="Employee" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Invoice" Member="Invoices">
+    <Type Name="Invoice">
+      <Column Name="Invoice_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Invoice_Booking" Member="Bookings" ThisKey="Invoice_Id" OtherKey="Invoice_Id" Type="Booking" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoginTable" Member="LoginTables">
+    <Type Name="LoginTable">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMP_ID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_Password" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_LoginTable" Member="Employee" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Medic" Member="Medics">
+    <Type Name="Medic">
+      <Column Name="M_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Degree" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_ID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_Medic" Member="Employee" ThisKey="EMP_ID" OtherKey="EMP_ID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

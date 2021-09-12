@@ -1,0 +1,14 @@
+C:\Users\EL Mkhonto\Desktop\FinalService\FinalService\bin\FinalService.dll.config
+C:\Users\EL Mkhonto\Desktop\FinalService\FinalService\bin\FinalService.dll
+C:\Users\EL Mkhonto\Desktop\FinalService\FinalService\bin\FinalService.pdb
+C:\Users\EL Mkhonto\Desktop\FinalService\FinalService\obj\Debug\FinalService.csprojAssemblyReference.cache
+C:\Users\EL Mkhonto\Desktop\FinalService\FinalService\obj\Debug\FinalService.csproj.CoreCompileInputs.cache
+C:\Users\EL Mkhonto\Desktop\FinalService\FinalService\obj\Debug\FinalService.dll
+C:\Users\EL Mkhonto\Desktop\FinalService\FinalService\obj\Debug\FinalService.pdb
+C:\Users\ledmo\Downloads\New folder\FinalService\FinalService\bin\FinalService.dll.config
+C:\Users\ledmo\Downloads\New folder\FinalService\FinalService\bin\FinalService.dll
+C:\Users\ledmo\Downloads\New folder\FinalService\FinalService\bin\FinalService.pdb
+C:\Users\ledmo\Downloads\New folder\FinalService\FinalService\obj\Debug\FinalService.csprojAssemblyReference.cache
+C:\Users\ledmo\Downloads\New folder\FinalService\FinalService\obj\Debug\FinalService.csproj.CoreCompileInputs.cache
+C:\Users\ledmo\Downloads\New folder\FinalService\FinalService\obj\Debug\FinalService.dll
+C:\Users\ledmo\Downloads\New folder\FinalService\FinalService\obj\Debug\FinalService.pdb
